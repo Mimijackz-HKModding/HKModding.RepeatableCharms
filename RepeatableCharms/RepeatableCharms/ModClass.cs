@@ -47,6 +47,33 @@ namespace RepeatableCharms
                 data.equippedCharm_3 = true;
                 controller.GRUB_SOUL_MP = GetCharmAmount(3) * 15;
             }
+            //Quickslash
+            if (GetCharmAmount(32) > 0)
+            {
+                data.equippedCharm_32 = true;
+                controller.ATTACK_COOLDOWN_TIME_CH = Mathf.Pow((float)25/41, GetCharmAmount(32)) * 0.41f;
+                controller.ATTACK_DURATION_CH = Mathf.Pow((float)28/35, GetCharmAmount(32)) * 0.35f;
+            }
+            //Dashmaster
+            if (GetCharmAmount(31) > 0)
+            {
+                data.equippedCharm_31 = true;
+                controller.DASH_COOLDOWN_CH = Mathf.Pow((float)4/6, GetCharmAmount(31)) * 0.6f;
+            }
+            //Nailmaster's Glory
+            if (GetCharmAmount(26) > 0)
+            {
+                data.equippedCharm_26 = true;
+                controller.NAIL_CHARGE_TIME_CHARM = Mathf.Pow((float)75/135, GetCharmAmount(26)) * 1.35f;
+            }
+            //Sprintmaster
+            if (GetCharmAmount(37) > 0)
+            {
+                data.equippedCharm_37 = true;
+                controller.RUN_SPEED_CH = GetCharmAmount(37) * 1.7f + 8.3f;
+                controller.RUN_SPEED_CH_COMBO = GetCharmAmount(37) * (1.7f + (GetCharmAmount(31) * 1.5f)) + 8.3f; //Dashmaster-Sprintmaster combo
+            }
+            
         }
 
         //Apparently the vanilla notch calculation calculates repeating charms as 0 cost so i just changed that calculation
